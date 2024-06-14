@@ -40,3 +40,36 @@ echo \{A,B,C\}             # Output: {A,B,C}
 # Multiple Sets of Braces
 echo {A,B}{1,2}{X,Y}       # Output: A1X A1Y A2X A2Y B1X B1Y B2X B2Y
 ```
+## I/O 
+
+```sh
+# Redirect stdout to a file
+echo "Hello" > output.txt
+
+# Append stdout to a file
+echo "World" >> output.txt
+
+# Redirect stdin from a file
+wc -l < input.txt
+
+# Redirect stdout and stderr to different files
+ls -l > listing.txt 2> errors.log
+
+# Redirect stdout and stderr to the same file
+ls -l > output.log 2>&1
+
+# Pipe stdout of one command into stdin of another
+cat file.txt | grep "pattern"
+
+# Here Documents for providing multiple lines of input
+cat << EOF
+Line 1
+Line 2
+EOF
+
+# Using file descriptors directly
+echo "Direct to stderr" >&2
+
+# Named Pipes (FIFOs)
+mkfifo mypipe
+```
